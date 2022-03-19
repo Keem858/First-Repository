@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+    background-color: #C197D2;
+}
+
+#main-container{
+    width: 65%;
+    height: 100%;
+    background: rgb(100,100,100);
+    margin: auto;
+    margin-top: 0%;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.question-container{
+    width: 75%;
+    height: 15%;
+    background: #FFFFFF;
+
+    margin-top: 2.5%;
+}
+
+.color-container{
+    width: 25%;
+    height: 25%;
+    background: #FFFFFF;
+    margin-top: 2.5%;
+}
+
+.answer-container{
+    width: 50%;
+    height: 47.5%;
+    background: #FFFFFF;
+    margin-top: 2.5%;
+}
