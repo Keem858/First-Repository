@@ -26,8 +26,12 @@ body{
     width: 75%;
     height: 15%;
     background: #FFFFFF;
-
     margin-top: 2.5%;
+    border: 2px solid black;
+    overflow: hidden;
+
+    text-align: center;
+    letter-spacing: 2px;
 }
 
 .color-container{
@@ -35,6 +39,7 @@ body{
     height: 25%;
     background: #FFFFFF;
     margin-top: 2.5%;
+    border: 2px solid black;
 }
 
 .answer-container{
@@ -42,4 +47,9 @@ body{
     height: 47.5%;
     background: #FFFFFF;
     margin-top: 2.5%;
+}
+
+/*just a temporary button*/
+.temp{
+    position: absolute;
 }
