@@ -35,6 +35,26 @@ body{
     letter-spacing: 2px;
 }
 
+/*buttons in the question container*/
+.choice-one{
+    height: 25%;
+    width: 100%;
+}
+
+.choice-two{
+    height: 25%;
+    width: 100%;
+}
+
+.choice-three{
+    height: 25%;
+    width: 100%;
+}
+.choice-four{
+    height: 25%;
+    width: 100%;
+}
+
 .color-container{
     width: 25%;
     height: 25%;
