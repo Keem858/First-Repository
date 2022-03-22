@@ -7,7 +7,9 @@
 body{
     height: 100vh;
     width: 100%;
-    background-color: #C197D2;
+    animation: changeBackground 10s linear infinite;
+
+   /* background-color: #C197D2;*/
 }
 
 #main-container{
@@ -73,4 +75,24 @@ body{
 /*just a temporary button*/
 .temp{
     position: absolute;
+}
+
+/*keyframes for the background color tansformation*/
+
+@keyframes changeBackground {
+    from {
+        background-color: #6666ff;
+      }
+      10% {
+        background-color: #0099ff;
+      }
+      50% {
+        background-color: #00ff00;
+      }
+      75% {
+        background-color: #ff3399;
+      }
+      100% {
+        background-color: #6666ff;
+      }
 }
