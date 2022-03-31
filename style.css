@@ -15,7 +15,7 @@ body{
 #main-container{
     width: 65%;
     height: 100%;
-    background: rgb(100,100,100);
+    background: rgb(55,55,55);
     margin: auto;
     margin-top: 0%;
     border: 3px solid black;
@@ -30,7 +30,7 @@ body{
     height: 15%;
     background: #FFFFFF;
     margin-top: 2.5%;
-    border: 2px solid black;
+    animation: changeBorder 10s linear infinite;
     overflow: hidden;
 
     text-align: center;
@@ -41,20 +41,77 @@ body{
 .choice-one{
     height: 25%;
     width: 100%;
+    background-color: #FF8F18;
+    opacity: .6;
+    transition: .3s;
+
+    border-radius: 25px;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.choice-one:hover{
+    opacity: 1;
+}
+
+.choice-one-span{
+    color: #000000;
 }
 
 .choice-two{
     height: 25%;
     width: 100%;
+    background-color: #FF8F18;
+    opacity: .6;
+    transition: .3s;
+
+    border-radius: 25px;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.choice-two:hover{
+    opacity: 1;
 }
 
 .choice-three{
     height: 25%;
     width: 100%;
+    background-color: #FF8F18;
+    opacity: .6;
+    transition: .3s;
+
+    border-radius: 25px;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 25px;
 }
+
+.choice-three:hover{
+    opacity: 1;
+}
+
 .choice-four{
     height: 25%;
     width: 100%;
+    background-color: #FF8F18;
+    opacity: .6;
+    transition: .3s;
+
+    border-radius: 25px;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.choice-four:hover{
+    opacity: 1;
 }
 
 .color-container{
@@ -62,14 +119,16 @@ body{
     height: 25%;
     background: #FFFFFF;
     margin-top: 2.5%;
-    border: 2px solid black;
+    animation: changeBorder 10s linear infinite;
 }
 
 .answer-container{
     width: 50%;
     height: 47.5%;
-    background: #FFFFFF;
-    margin-top: 2.5%;
+    background: rgb(100,100,100)F;
+    margin-top: 2.5%; 
+
+    border-radius: 25px;
 }
 
 /*just a temporary button*/
@@ -94,5 +153,23 @@ body{
       }
       100% {
         background-color: #6666ff;
+      }
+}
+
+@keyframes changeBorder {
+    from {
+        border: 3px solid #6666ff;
+      }
+      10% {
+        border: 3px solid #0099ff;
+      }
+      50% {
+        border: 3px solid #00ff00;
+      }
+      75% {
+        border:  3px solid#ff3399;
+      }
+      100% {
+        border: 3px solid #6666ff;
       }
 }

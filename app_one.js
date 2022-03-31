@@ -2,6 +2,7 @@ var colorGeneratorCounter = 0;
 var prevRng;
 var button = document.querySelector('.temp');
 
+//creates the hexadecimal and returns it
 function createHexaColor(){
     var maxColorVal = 0xFFFFFF; //16777215
     var randomNumber = Math.floor(Math.random() * maxColorVal);
@@ -12,6 +13,7 @@ function createHexaColor(){
     return(randColor);
 }
 
+//applies to the background and console and return the color it used
 function colorGenerator(){
     var colorContainer = document.querySelector(".color-container"); //color-container from the html css
 
@@ -21,6 +23,8 @@ function colorGenerator(){
     colorContainer.style.backgroundColor = randColor;
 
     colorGeneratorCounter++;
+
+    return(randColor);
 }
 
 //function to keep track if the click is even or odd
@@ -48,7 +52,7 @@ function generateQuestion(){
     }
 }
 
-//putting the answer choice buttons into js
+//these are the answer choice buttons
 var choiceOne = document.querySelector(".choice-one");
 var choiceTwo = document.querySelector(".choice-two");
 var choiceThree = document.querySelector(".choice-three");
@@ -58,7 +62,7 @@ var choiceFour = document.querySelector(".choice-four");
 function answerChoiceButtons(){
     var randAnswer;
 
-    let randColor = createHexaColor();
+    let randColor = colorGenerator();
 
     //pick random button to put the color answer into
     let randNum = Math.floor(Math.random() * 4);
@@ -78,7 +82,7 @@ function answerChoiceButtons(){
     choiceThree.innerHTML = "c)";
     choiceFour.innerHTML = "d)";
 
-    randAnswer.append(" " + randColor);
+    randAnswer.append(" " + randColor); //temp spaceing issue
 
     //fill in the other choices with random hexadecimal
 }
@@ -98,19 +102,19 @@ function hexGenerator(){
 
 //detect and fill the remaining answer buttons
 function fillAnswers(){
-    if(choiceOne.innerHTML == "a)"){
-        choiceOne.append(hexGenerator());
+    if(choiceOne.innerHTML.length < 9){
+        choiceOne.append(" " + hexGenerator());
     }
 
-    if(choiceTwo.innerHTML == "b)"){
-        choiceTwo.append(hexGenerator());
+    if(choiceTwo.innerHTML.length < 9){
+        choiceTwo.append(" " + hexGenerator());
     }
 
-    if(choiceThree.innerHTML == "c)"){
-        choiceThree.append(hexGenerator());
+    if(choiceThree.innerHTML.length < 9){
+        choiceThree.append(" " + hexGenerator());
     }
 
-    if(choiceFour.innerHTML == "d)"){
-        choiceFour.append(hexGenerator());
+    if(choiceFour.innerHTML.length < 9){
+        choiceFour.append(" " + hexGenerator());
     }
 }
