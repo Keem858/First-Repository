@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -7,18 +9,17 @@
 body{
     height: 100vh;
     width: 100%;
-    animation: changeBackground 10s linear infinite;
-
-   /* background-color: #C197D2;*/
+	background-color: #000000;
+	background-image: url('stars.jpg');
 }
 
 #main-container{
-    width: 65%;
+    width: 60%;
     height: 100%;
     background: rgb(55,55,55);
     margin: auto;
     margin-top: 0%;
-    border: 3px solid black;
+    animation: changeBorder 10s linear infinite;
     
     display: flex;
     flex-direction: column;
@@ -33,23 +34,30 @@ body{
     animation: changeBorder 10s linear infinite;
     overflow: hidden;
 
+	font-family: 'Noto Serif', serif;
     text-align: center;
     letter-spacing: 2px;
+	font-size: 25px;
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 /*buttons in the question container*/
 .choice-one{
     height: 25%;
-    width: 100%;
+    width: 70%;
     background-color: #FF8F18;
     opacity: .6;
     transition: .3s;
 
-    border-radius: 25px;
     cursor: pointer;
     color: #FFFFFF;
     font-weight: bold;
     font-size: 25px;
+	
+	overflow: hidden;
 }
 
 .choice-one:hover{
@@ -62,16 +70,17 @@ body{
 
 .choice-two{
     height: 25%;
-    width: 100%;
+    width: 70%;
     background-color: #FF8F18;
     opacity: .6;
-    transition: .3s;
+    transition: .2s;
 
-    border-radius: 25px;
     cursor: pointer;
     color: #FFFFFF;
     font-weight: bold;
     font-size: 25px;
+	
+	overflow: hidden;
 }
 
 .choice-two:hover{
@@ -80,16 +89,17 @@ body{
 
 .choice-three{
     height: 25%;
-    width: 100%;
+    width: 70%;
     background-color: #FF8F18;
     opacity: .6;
-    transition: .3s;
+    transition: .2s;
 
-    border-radius: 25px;
     cursor: pointer;
     color: #FFFFFF;
     font-weight: bold;
     font-size: 25px;
+	
+	overflow: hidden;
 }
 
 .choice-three:hover{
@@ -98,16 +108,17 @@ body{
 
 .choice-four{
     height: 25%;
-    width: 100%;
+    width: 70%;
     background-color: #FF8F18;
     opacity: .6;
-    transition: .3s;
+    transition: .2s;
 
-    border-radius: 25px;
     cursor: pointer;
     color: #FFFFFF;
     font-weight: bold;
     font-size: 25px;
+	
+	overflow: hidden;
 }
 
 .choice-four:hover{
@@ -129,6 +140,11 @@ body{
     margin-top: 2.5%; 
 
     border-radius: 25px;
+	
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 /*just a temporary button*/

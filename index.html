@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="style.css">
     <title>Color code matching game</title>
 </head>
-<body onload="generateQuestion(), answerChoiceButtons(), fillAnswers()">
+<body onload="hexGenerator(), colorGenerator(), generateQuestion(), answerChoiceButtons(), fillAnswers(), changeInnerValues()">
     <div id="main-container">
         <div class="question-container">
             <p class="question-text"></p>
         </div>
 
         <!--temporary button to see if the function works-->
-        <button class = "temp" onclick="generateQuestion(), answerChoiceButtons(), fillAnswers()">click me</button>
+        <button class = "temp" onclick="hexGenerator(), colorGenerator(), generateQuestion(), answerChoiceButtons(), fillAnswers(), changeInnerValues()">click me</button>
         
         <div class="color-container">
             <!--This will pretty much remain empty-->
@@ -22,7 +22,7 @@
 
         <div class="answer-container">
             <!--There will be four sub buttons in here that will act as the choices-->
-            <button class="choice-one">a)</button>
+            <button class="choice-one"><span>"choice-one-span">a)</span></button>
             <button class="choice-two">b)</button>
             <button class="choice-three">c)</button>
             <button class="choice-four">d)</button>

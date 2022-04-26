@@ -1,31 +1,46 @@
 var colorGeneratorCounter = 0;
 var prevRng;
 var button = document.querySelector('.temp');
+var hexBox; //holds the static hexadecimal to be used in other functions
+
+var hexArrAnswer; //holds the hexadecimal answer array
+//the three variables below this hold the hex value of the filler buttons
+var hexArrFillerOne;
+var hexArrFillerTwo;
+var hexArrFillerThree;
+
+var storeAnswerButton; //this will store the button the answer needs to be assigned to
 
 //creates the hexadecimal and returns it
-function createHexaColor(){
-    var maxColorVal = 0xFFFFFF; //16777215
-    var randomNumber = Math.floor(Math.random() * maxColorVal);
-    randomNumber = randomNumber.toString(16);
-    randColor = randomNumber.padStart(6,0);
-    randColor = `#${randColor.toUpperCase()}`;
+function hexGenerator(){
+    var hex = Math.floor(Math.random() * 0xFFFFFF << 0).toString(16);
+    hex = '#' + hex;
 
-    return(randColor);
+    if(hex < 7){
+        hexGenerator();
+    }
+
+    hexBox = hex;
+	return(hex);
 }
 
 //applies to the background and console and return the color it used
 function colorGenerator(){
     var colorContainer = document.querySelector(".color-container"); //color-container from the html css
 
-    let randColor = createHexaColor();
-    console.log("This is the answer: " + randColor);
+    let randomColor = hexBox;
+    console.log("colorGenerator function: " + randomColor);
 
-    colorContainer.style.backgroundColor = randColor;
+    colorContainer.style.backgroundColor = randomColor;
 
     colorGeneratorCounter++;
-
-    return(randColor);
+	
+	hexArrAnswer = hexToArr(hexBox);
 }
+
+/**************************** THIS BOX DEALS WITH THE QUESTIONS***************************************/
+//This box has to do with the questions
+
 
 //function to keep track if the click is even or odd
 function evenOrOdd(counter){
@@ -52,17 +67,20 @@ function generateQuestion(){
     }
 }
 
+/**********************************************************************/
+
 //these are the answer choice buttons
 var choiceOne = document.querySelector(".choice-one");
 var choiceTwo = document.querySelector(".choice-two");
 var choiceThree = document.querySelector(".choice-three");
 var choiceFour = document.querySelector(".choice-four");
 
-//function to assign an answer to the four answer choice buttons
+//function to assign an ANSWER to the four answer choice buttons
 function answerChoiceButtons(){
     var randAnswer;
 
-    let randColor = colorGenerator();
+    let randColor = hexBox;
+	console.log("answerChoiceButton function: " + randColor);
 
     //pick random button to put the color answer into
     let randNum = Math.floor(Math.random() * 4);
@@ -83,38 +101,132 @@ function answerChoiceButtons(){
     choiceFour.innerHTML = "d)";
 
     randAnswer.append(" " + randColor); //temp spaceing issue
-
-    //fill in the other choices with random hexadecimal
-}
-
-//create a second hexadecimal generator that will fill the remaining three answer choices
-
-function hexGenerator(){
-    var hex = Math.floor(Math.random() * 0xFFFFFF << 0).toString(16);
-    hex = '#' + hex;
-
-    if(hex < 7){
-        hexGenerator();
-    }
-
-    return(hex);
+	
+	storeAnswerButton = randAnswer;
 }
 
 //detect and fill the remaining answer buttons
 function fillAnswers(){
+	//variables to store the filler answer hex's
+	var choiceOneFiller = hexGenerator();
+	var choiceTwoFiller = hexGenerator();
+	var choiceThreeFiller = hexGenerator();
+	var choiceFourFiller = hexGenerator();
+	
+	
     if(choiceOne.innerHTML.length < 9){
-        choiceOne.append(" " + hexGenerator());
+        choiceOne.append(" " + choiceOneFiller);
+		hexArrFillerOne = hexToArr(choiceOneFiller);
     }
 
     if(choiceTwo.innerHTML.length < 9){
-        choiceTwo.append(" " + hexGenerator());
+        choiceTwo.append(" " + choiceTwoFiller);
+		hexArrFillerTwo = hexToArr(choiceTwoFiller);
     }
 
     if(choiceThree.innerHTML.length < 9){
-        choiceThree.append(" " + hexGenerator());
+        choiceThree.append(" " + choiceThreeFiller);
+		hexArrFillerThree = hexToArr(choiceThreeFiller);
     }
 
     if(choiceFour.innerHTML.length < 9){
-        choiceFour.append(" " + hexGenerator());
+        choiceFour.append(" " + choiceFourFiller);
+		hexArrFillerFour = hexToArr(choiceFourFiller);
     }
+}
+
+/***************************************THIS BOX HERE IS A LOT OF THE NEW CODE IM WORKING ON AT SCHOOL**************************************************/
+//turn hexBox into an Array
+
+function hexToArr(hexBox){
+	var hexBoxArr = [];
+	
+	for(var i = 0; i < hexBox.length; i++){
+		hexBoxArr.push(hexBox[i]);
+	}
+	
+	console.log(hexBoxArr);
+	return(hexBoxArr);
+}
+
+//turns the hex array passed through this into decimal
+function hexToDec(arr){
+	var red;
+	var green;
+	var blue;
+	
+	var newArr = [];
+	
+	//loop through the array and push the values into the new one
+	for(var x = 1; x < arr.length; x++){
+		if(arr[x] <= 9){
+			newArr.push(arr[x]);
+		}else if(arr[x] == 'a'){
+			newArr.push(10);
+		}else if(arr[x] == 'b'){
+			newArr.push(11);
+		}else if(arr[x] == 'c'){
+			newArr.push(12);
+		}else if(arr[x]== 'd'){
+			newArr.push(13);
+		}else if(arr[x] == 'e'){
+			newArr.push(14);
+		}else{
+			newArr.push(15);
+		}
+	}
+	
+	console.log(newArr);
+	
+	// mult 0 and 1 for red. 2 and 3 for green. 4 and 5 for blue
+	red = newArr[0] * newArr[1]
+	green = newArr[2] * newArr[3]
+	blue = newArr[4] * newArr[5]
+	
+	console.log("rgb(" + red + "," + green + "," + blue + ")");
+	return("rgb(" + red + "," + green + "," + blue + ")");
+}
+
+//function that will create random rgb color codes and return it as a string "rgb(red,green,blue)"
+function rgbGenerator(){
+	var red;
+	var green;
+	var blue;
+	
+	red = Math.floor(Math.random() * 255).toString(10);
+	green = Math.floor(Math.random() * 255).toString(10);
+	blue = Math.floor(Math.random() * 255).toString(10);
+	
+	return("rgb(" + red + "," + green + "," + blue + ")");
+}
+
+// run this function only on odd values of colorGeneratorCounter. turn the inner html of the buttons into rgb using the above function / variable.
+function changeInnerValues(){
+	if(evenOrOdd(colorGeneratorCounter) == false){
+		//make the inner html of the buttons a b c d
+		choiceOne.innerHTML = "a) ";
+		choiceTwo.innerHTML = "b) ";
+		choiceThree.innerHTML = "c) ";
+		choiceFour.innerHTML = "d) ";
+		
+		//append the inner html with the rgb answer
+		storeAnswerButton.append(hexToDec(hexArrAnswer));
+		
+		//fill the rest with the random rgb color codes
+		if(choiceOne.innerHTML.length < 5){
+			choiceOne.append(" " + rgbGenerator());
+		}
+
+		if(choiceTwo.innerHTML.length < 5){
+			choiceTwo.append(" " + rgbGenerator());
+		}
+
+		if(choiceThree.innerHTML.length < 5){
+			choiceThree.append(" " + rgbGenerator());
+		}
+
+		if(choiceFour.innerHTML.length < 5){
+			choiceFour.append(" " + rgbGenerator());
+		}
+	}
 }
