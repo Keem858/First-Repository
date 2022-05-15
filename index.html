@@ -8,13 +8,33 @@
     <title>Color code matching game</title>
 </head>
 <body onload="hexGenerator(), colorGenerator(), generateQuestion(), answerChoiceButtons(), fillAnswers(), changeInnerValues()">
+
+	<!--container to hold correct / incorrect information-->
+	<div class="correct-info">
+		<div class="correct-text-one">
+			<h1>Correct: </h1>
+		</div>
+		<div class="correct-number-container">
+			0<!--this is where the correct number will be generated-->
+		</div>
+	</div>
+	
+	<div class="incorrect-info">
+		<div class="incorrect-info-one">
+			<h1>Incorrect: </h1>
+		</div>
+		<div class="incorrect-number-container">
+			0<!--this is where the incorrect number count will be generated-->
+		</div>
+	</div>
+	
     <div id="main-container">
         <div class="question-container">
             <p class="question-text"></p>
         </div>
 
         <!--temporary button to see if the function works-->
-        <button class = "temp" onclick="hexGenerator(), colorGenerator(), generateQuestion(), answerChoiceButtons(), fillAnswers(), changeInnerValues()">click me</button>
+        <!--<button class = "temp" onclick="hexGenerator(), colorGenerator(), generateQuestion(), answerChoiceButtons(), fillAnswers(), changeInnerValues()">click me</button>-->
         
         <div class="color-container">
             <!--This will pretty much remain empty-->
@@ -27,7 +47,7 @@
             <button class="choice-three">c)</button>
             <button class="choice-four">d)</button>
         </div>
-    </div>
+    </div>	
 </body>
 
 <script src="app_one.js"></script>

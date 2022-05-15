@@ -103,6 +103,7 @@ function answerChoiceButtons(){
     randAnswer.append(" " + randColor); //temp spaceing issue
 	
 	storeAnswerButton = randAnswer;
+	return(randAnswer);
 }
 
 //detect and fill the remaining answer buttons
@@ -230,3 +231,85 @@ function changeInnerValues(){
 		}
 	}
 }
+
+/* Next steps of this assignment
+1. have the correct answer in the variable... This has already been done
+2. look for the click of a button
+3. if that click == the correct answer display correct
+4. If it is incorrect display that is was incorrect AND what the correct answer was
+5. the page needs to be refreshed after the correct/incorrect answer has been displayed
+*/
+
+//this function will handle reloading the page
+/*
+function reload(){
+	setTimeout("location.reload(true);",2500);
+}
+*/
+
+//this checks to see if the users click is correct or not
+//when the user presses the correct answer add 1 to a counter... to do this I need to figure out when the user clicks the correct answer
+var holdAnswer = answerChoiceButtons();
+
+//this part of the program will also work with the correct and incorrect counters
+//var for the respective containers
+var correctCount = 0;
+var incorrectCount = 0;
+var correctContainer = document.querySelector('.correct-number-container');
+var incorrectContainer = document.querySelector('.incorrect-number-container');
+
+choiceOne.addEventListener('click', function(){
+	if(choiceOne.innerHTML == storeAnswerButton.innerHTML){
+		alert("correct!");
+		correctCount++;
+		correctContainer.innerHTML = correctCount.toString(10);
+		setTimeout(hexGenerator(), colorGenerator(), generateQuestion(), answerChoiceButtons(), fillAnswers(), changeInnerValues());
+	}else{
+		alert("incorrect! The correct answer was: " + storeAnswerButton.innerHTML);
+		incorrectCount++;
+		incorrectContainer.innerHTML = incorrectCount.toString(10);
+		setTimeout(hexGenerator(), colorGenerator(), generateQuestion(), answerChoiceButtons(), fillAnswers(), changeInnerValues());
+	}
+});
+
+choiceTwo.addEventListener('click', function(){
+	if(choiceTwo.innerHTML == storeAnswerButton.innerHTML){
+		alert("correct!");
+		correctCount++;
+		correctContainer.innerHTML = correctCount.toString(10);
+		setTimeout(hexGenerator(), colorGenerator(), generateQuestion(), answerChoiceButtons(), fillAnswers(), changeInnerValues());
+	}else{
+		alert("incorrect! The correct answer was: " + storeAnswerButton.innerHTML);
+		incorrectCount++;
+		incorrectContainer.innerHTML = incorrectCount.toString(10);
+		setTimeout(hexGenerator(), colorGenerator(), generateQuestion(), answerChoiceButtons(), fillAnswers(), changeInnerValues());
+	}
+});
+
+choiceThree.addEventListener('click', function(){
+	if(choiceThree.innerHTML == storeAnswerButton.innerHTML){
+		alert("correct!");
+		correctCount++;
+		correctContainer.innerHTML = correctCount.toString(10);
+		setTimeout(hexGenerator(), colorGenerator(), generateQuestion(), answerChoiceButtons(), fillAnswers(), changeInnerValues());
+	}else{
+		alert("incorrect! The correct answer was: " + storeAnswerButton.innerHTML);
+		incorrectCount++;
+		incorrectContainer.innerHTML = incorrectCount.toString(10);
+		setTimeout(hexGenerator(), colorGenerator(), generateQuestion(), answerChoiceButtons(), fillAnswers(), changeInnerValues());
+	}
+});
+
+choiceFour.addEventListener('click', function(){
+	if(choiceFour.innerHTML == storeAnswerButton.innerHTML){
+		alert("correct!");
+		correctCount++;
+		correctContainer.innerHTML = correctCount.toString(10);
+		setTimeout(hexGenerator(), colorGenerator(), generateQuestion(), answerChoiceButtons(), fillAnswers(), changeInnerValues());
+	}else{
+		alert("incorrect! The correct answer was: " + storeAnswerButton.innerHTML);
+		incorrectCount++;
+		incorrectContainer.innerHTML = incorrectCount.toString(10);
+		setTimeout(hexGenerator(), colorGenerator(), generateQuestion(), answerChoiceButtons(), fillAnswers(), changeInnerValues());
+	}
+});
