@@ -136,7 +136,7 @@ body{
 .answer-container{
     width: 50%;
     height: 47.5%;
-    background: rgb(100,100,100)F;
+    background: rgb(55,55,55);
     margin-top: 2.5%; 
 
     border-radius: 25px;
@@ -183,7 +183,7 @@ body{
         border: 3px solid #00ff00;
       }
       75% {
-        border:  3px solid#ff3399;
+        border:  3px solid #ff3399;
       }
       100% {
         border: 3px solid #6666ff;

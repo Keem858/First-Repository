@@ -13,10 +13,10 @@ var storeAnswerButton; //this will store the button the answer needs to be assig
 
 //creates the hexadecimal and returns it
 function hexGenerator(){
-    var hex = Math.floor(Math.random() * 0xFFFFFF << 0).toString(16);
+    var hex = Math.floor(Math.random() * 0xFFFFFF << 0).toString(16).padStart(6,'0');
     hex = '#' + hex;
 
-    if(hex < 7){
+    if(hex.length < 7){
         hexGenerator();
     }
 
@@ -179,11 +179,22 @@ function hexToDec(arr){
 	
 	console.log(newArr);
 	
-	// mult 0 and 1 for red. 2 and 3 for green. 4 and 5 for blue
-	red = newArr[0] * newArr[1]
-	green = newArr[2] * newArr[3]
-	blue = newArr[4] * newArr[5]
-	
+	// THIS IS WRONG AS OF 5/15/2022
+	//newArr[0-5]
+	var first = newArr[0];
+	var second = newArr[1];
+	var third = newArr[2];
+	var fourth = newArr[3];
+	var fifth = newArr[4];
+	var sixth = newArr[5];
+	first = first * 16;
+	third = third * 16;
+	fifth = fifth * 16;
+
+	red = parseInt(first) + parseInt(second);
+	green = parseInt(third) + parseInt(fourth);
+	blue = parseInt(fifth) + parseInt(sixth);
+
 	console.log("rgb(" + red + "," + green + "," + blue + ")");
 	return("rgb(" + red + "," + green + "," + blue + ")");
 }
@@ -197,8 +208,10 @@ function rgbGenerator(){
 	red = Math.floor(Math.random() * 255).toString(10);
 	green = Math.floor(Math.random() * 255).toString(10);
 	blue = Math.floor(Math.random() * 255).toString(10);
+
+	var rgb = "rgb(" + red + "," + green + "," + blue + ")"
 	
-	return("rgb(" + red + "," + green + "," + blue + ")");
+	return(rgb);
 }
 
 // run this function only on odd values of colorGeneratorCounter. turn the inner html of the buttons into rgb using the above function / variable.
